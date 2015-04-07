@@ -9,7 +9,7 @@ sys.path.append(project_dir)
 
 from actors import YellowBird, Obstacle, Pig
 from phase import Phase
-from graphics_tk import rodar_fase
+from graphics_tk import run_phase
 from random import randint
 
 if __name__ == '__main__':
@@ -40,4 +40,4 @@ if __name__ == '__main__':
         y = randint(0, 21)
         fase.add_pigs(Pig(x, y))
 
-    rodar_fase(fase)
+    run_phase(fase)

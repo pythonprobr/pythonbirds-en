@@ -8,7 +8,7 @@ sys.path.append(project_dir)
 
 from actors import YellowBird, RedBird, Obstacle, Pig
 from phase import Phase
-from graphics_tk import rodar_fase
+from graphics_tk import run_phase
 
 if __name__ == '__main__':
     fase = Phase(intervalo_de_colisao=32)
@@ -30,4 +30,4 @@ if __name__ == '__main__':
     for i in range(30, 300, 32):
         fase.add_pigs(Pig(600, i))
 
-    rodar_fase(fase)
+    run_phase(fase)

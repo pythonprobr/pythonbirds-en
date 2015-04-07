@@ -120,7 +120,7 @@ def animar(tela, camada_de_atores, fase, passo=0.01, delta_t=0.01):
     tela.after(passo, _animar)
 
 
-def rodar_fase(fase):
+def run_phase(fase):
     root.title("Python Birds")
     root.geometry("800x600")
     root.resizable(0, 0)
@@ -142,7 +142,7 @@ def main():
     fase.add_obstacles(*obstaculos)
     fase.add_birds(*passaros)
     fase.add_pigs(*porcos)
-    rodar_fase(fase)
+    run_phase(fase)
 
 
 if __name__ == '__main__':
