@@ -12,7 +12,7 @@ class Actor():
     """
     Class representing an actor. It represents a point on screen.
     """
-    _active_char = 'A'
+    _active_char = 'O'
     _destroyed_char = ' '
 
     def __init__(self, x=0, y=0):
