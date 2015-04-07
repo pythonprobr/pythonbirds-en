@@ -27,7 +27,7 @@ class Actor():
         self.status = ACTIVE
 
     def character(self):
-        return self._active_char if self.status == ACTIVE else self._destroyed_char
+        return self._active_char
 
     def calculate_position(self, time):
         """
@@ -37,7 +37,7 @@ class Actor():
         :param time: game's time
         :return: actor's position x, y
         """
-        return self.x, self.y
+        return 1, 1
 
     def clash(self, another_actor, interval=1):
         """
@@ -50,25 +50,19 @@ class Actor():
         :param interval: clash interval
         :return:
         """
-        if self.status == DESTROYED or another_actor.status == DESTROYED:
-            return
-
-        if self.x - interval <= another_actor.x <= self.x + interval and self.y - interval <= another_actor.y <= self.y + interval:
-            self.status = DESTROYED
-            another_actor.status = DESTROYED
+        pass
 
 
 class Obstacle(Actor):
-    _active_char = 'O'
+    pass
 
 
 class Pig(Actor):
-    _active_char = '@'
-    _destroyed_char = '+'
+    pass
 
 
 class Bird(Actor):
-    velocity = None
+    velocity = 1
 
     def __init__(self, x=0, y=0):
         """
@@ -92,7 +86,7 @@ class Bird(Actor):
 
         :return: boolean
         """
-        return self._launch_time is not None
+        pass
 
     def ground_clash(self):
         """
@@ -100,21 +94,16 @@ class Bird(Actor):
         Bird's status must be changed to destroyed
 
         """
-        if self.y <= 0:
-            self.status = DESTROYED
+        pass
 
     def _calculate_horizontal_position(self, delta_t):
-        self.x = self._x_initial + self.velocity * delta_t * math.cos(self._launch_angle)
+        pass
 
     def _calculate_vertical_position(self, delta_t):
-        self.y = (self._y_initial +
-                  self.velocity * delta_t * math.sin(self._launch_angle) -
-                  (GRAVITY / 2) * delta_t ** 2)
+        pass
 
     def _calculate_position(self, time):
-        delta_t = time - self._launch_time
-        self._calculate_vertical_position(delta_t)
-        self._calculate_horizontal_position(delta_t)
+        pass
 
     def calculate_position(self, time):
         """
@@ -130,12 +119,7 @@ class Bird(Actor):
         :param time: game's time
         :return: position (tuple) x, y
         """
-        if self._launch_time is None:
-            return self._x_initial, self._y_initial
-        if self.status == ACTIVE:
-            self._calculate_position(time)
-        return self.x, self.y
-
+        return 1, 1
 
     def launch(self, angle, launch_time):
         """
@@ -146,23 +130,13 @@ class Bird(Actor):
         :param launch_time:
         :return:
         """
-        self._launch_time = launch_time
-        self._launch_angle = math.radians(angle)
+        pass
 
-    def _waiting_launch(self, tempo):
-        return not self.launched() or tempo < self._launch_time
-
-    def _clashed(self):
-        return self.launched() and self.status() == DESTROYED
 
 
 class YellowBird(Bird):
-    velocity = 30  # m/s
-    _active_char = 'Y'
-    _destroyed_char = 'y'
+    pass
 
 
 class RedBird(Bird):
-    velocity = 20  # m/s
-    _active_char = 'R'
-    _destroyed_char = 'r'
+    pass
