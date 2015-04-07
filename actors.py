@@ -10,7 +10,7 @@ GRAVITY = 10  # m/s^2
 
 class Actor():
     """
-    Class representing an actor. He represents a point on screen.
+    Class representing an actor. It represents a point on screen.
     """
     _active_char = 'A'
     _destroyed_char = ' '

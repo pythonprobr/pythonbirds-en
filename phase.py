@@ -4,7 +4,7 @@ from itertools import chain
 from actors import ACTIVE
 
 
-# Status possíveis do jogo
+# Games's Statuses
 
 VICTORY = 'VICTORY'
 DEFEAT = 'DEFEAT'
