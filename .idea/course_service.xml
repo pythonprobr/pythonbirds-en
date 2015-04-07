@@ -62,6 +62,17 @@
               </map>
             </option>
           </Lesson>
+          <Lesson>
+            <option name="index" value="2" />
+            <option name="name" value="lesson2" />
+            <option name="task_list">
+              <list />
+            </option>
+            <option name="myIndex" value="2" />
+            <option name="myTasksMap">
+              <map />
+            </option>
+          </Lesson>
         </list>
       </option>
       <option name="description" value="A funny approach to learn Object Orientation while implementing a simplified version of Angry Birds game" />
@@ -124,6 +135,21 @@
                       </value>
                     </entry>
                   </map>
+                </option>
+              </Lesson>
+            </value>
+          </entry>
+          <entry key="lesson2">
+            <value>
+              <Lesson>
+                <option name="index" value="2" />
+                <option name="name" value="lesson2" />
+                <option name="task_list">
+                  <list />
+                </option>
+                <option name="myIndex" value="2" />
+                <option name="myTasksMap">
+                  <map />
                 </option>
               </Lesson>
             </value>
