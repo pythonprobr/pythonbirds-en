@@ -39,8 +39,6 @@ class Phase():
         self._pigs = []
         self._obstacles = []
 
-    def _add_actors(self, lst, *actors):
-        lst.extend(actors)
 
     def add_obstacles(self, *obstacles):
         """
@@ -48,7 +46,7 @@ class Phase():
 
         :param obstacles:
         """
-        self._add_actors(self._obstacles, *obstacles)
+        pass
 
     def add_pigs(self, *pigs):
         """
@@ -56,7 +54,7 @@ class Phase():
 
         :param pigs:
         """
-        self._add_actors(self._pigs, *pigs)
+        pass
 
     def add_birds(self, *birds):
         """
@@ -64,7 +62,7 @@ class Phase():
 
         :param birds:
         """
-        self._add_actors(self._birds, *birds)
+        pass
 
 
     def status(self):
@@ -79,11 +77,7 @@ class Phase():
 
         :return:
         """
-        if not self._is_there_active_pig():
-            return VICTORY
-        if self._is_there_active_bird():
-            return ON_GOING
-        return DEFEAT
+        return ON_GOING
 
     def launch(self, angle, time):
         """
@@ -96,10 +90,7 @@ class Phase():
         :param angle: launch angle
         :param time: launch time
         """
-        for bird in self._birds:
-            if not bird.launched():
-                bird.launch(angle, time)
-                return
+        pass
 
 
     def calculate_points(self, time):
@@ -109,32 +100,9 @@ class Phase():
         :param time: game's time
         :return: Point object
         """
-        points = [self._calculate_bird_points(p, time) for p in self._birds]
-        obstacles_and_pigs = chain(self._obstacles, self._pigs)
-        points.extend([self._to_point(actor) for actor in obstacles_and_pigs])
+        points = []
         return points
 
     def _to_point(self, actor):
         return Point(actor.x, actor.y, actor.character())
 
-    def _calculate_bird_points(self, bird, time):
-        bird.calculate_position(time)
-        for actor in chain(self._obstacles, self._pigs):
-            if ACTIVE == bird.status:
-                bird.clash(actor, self.clash_interval)
-                bird.ground_clash()
-            else:
-                break
-        return self._to_point(bird)
-
-    def _is_there_active_pig(self):
-        return self._check_active_actor(self._pigs)
-
-    def _check_active_actor(self, actors):
-        for a in actors:
-            if a.status == ACTIVE:
-                return True
-        return False
-
-    def _is_there_active_bird(self):
-        return self._check_active_actor(self._birds)
