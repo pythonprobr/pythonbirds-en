@@ -11,18 +11,18 @@ Take a look at videos. Even in portuguese, is possible to see the graphics ;): [
 
 Install [Python 3](https://www.python.org/download/).
 
-Downlaod the version containing only the [project structure](https://github.com/pythonprobr/pythonbirds/archive/diversao.zip)
+Download the version containing only the [project structure](https://github.com/pythonprobr/pythonbirds/archive/training.zip)
 
 Tests are under "testes" package and define the classes behavior.
 Run all tests by executing:
 
     python testloader.py
     
-Detailed explanation about classes and methods is found on [Simplified Game](#simplified-game)
+Detailed explanation about classes and methods are found on [Simplified Game](#simplified-game)
 
 ## Development sequence
 
-Star development with actors.py, following respective tests under actor_tests.py.
+Start development with actors.py, following respective tests under actor_tests.py.
 Next go to phase.py with its respective tests fase_teste.py.
 
 You can run the game any time by executing:
